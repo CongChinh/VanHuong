@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{web/_layout_lienhe}">
+<head>
+<title>Tìm kiếm</title>
+</head>
+<body>
+	<div layout:fragment="content">
+	<div style="background-color: #ffffff; margin-left: 15px">
+			<ul class="row">
+				<li class="col-md-3" th:each="search : ${search}">
+					<div class="item">
+						<div>
+							<a
+								th:href="@{/detail/{url}.html(url=${search.url})}">
+								<img alt="" th:src="@{'/images/product/' + ${search.image}}">
+							</a>
+						</div>
+						<div class="index-item-content">
+							<a
+								th:href="@{/detail/{url}.html(url=${search.url})}"
+								th:text="${search.name}"> </a>
+						</div>
+						<div class="price-contact">
+							<p class="price-c">
+								Giá : <span class="p-contact">Liên hệ</span>
+							</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
+

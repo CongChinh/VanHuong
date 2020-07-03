@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{web/_layout_index}">
+<head>
+<title>HQ</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="title-box">
+			<p>Sản phẩm khuyến mại</p>
+		</div>
+		<div class="total-box">
+			<div class="box">
+				<div class="slider">
+					<div th:each="proKhuyenMai : ${proKhuyenMai}" class="slide-border">
+						<div>
+							<a
+								th:href="@{/detail/{url}.html(url=${proKhuyenMai.url})}">
+								<img alt=""
+								th:src="@{'/images/product/' + ${proKhuyenMai.image}}">
+							</a>
+						</div>
+						<div class="name-box">
+							<a
+								th:href="@{/detail/{url}.html(url=${proKhuyenMai.url})}"
+								th:text="${proKhuyenMai.name}"> </a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="title-box">
+			<p>Sản phẩm mới</p>
+		</div>
+		<div class="total-box">
+			<div class="box">
+				<div class="slider">
+					<div th:each="proMoi : ${proMoi}" class="slide-border">
+						<div>
+							<a
+								th:href="@{/detail/{url}.html(url=${proMoi.url})}">
+								<img alt="" th:src="@{'/images/product/' + ${proMoi.image}}">
+							</a>
+						</div>
+						<div class="name-box">
+							<a
+								th:href="@{/detail/{url}.html(url=${proMoi.url})}"
+								th:text="${proMoi.name}"> </a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="title-box">
+			<p>Sản phẩm nổi bật</p>
+		</div>
+		<div class="index-item">
+			<ul class="row">
+				<li class="col-md-4" th:each="proAll : ${proAll}">
+					<div class="item">
+						<div>
+							<a
+								th:href="@{/detail/{url}.html(url=${proAll.url})}">
+								<img alt="" th:src="@{'/images/product/' + ${proAll.image}}">
+							</a>
+						</div>
+						<div class="index-item-content">
+							<a
+								th:href="@{/detail/{url}.html(url=${proAll.url})}"
+								th:text="${proAll.name}"> </a>
+						</div>
+						<div class="price-contact">
+							<p class="price-c">
+								Giá : <span class="p-contact">Liên hệ</span>
+							</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="pagination">
+			<div th:if="${proAll.hasPrevious()}">
+				<a th:href="@{/(page=${currentPage-1})}">Trước</a>
+			</div>
+			<div th:each="i: ${#numbers.sequence(begin, end)}">
+				<a th:href="@{/(page=${i})}" th:text="${i+1}"
+					th:classappend="${currentPage}==${i}?'active':''"></a>
+			</div>
+			<div th:if="${proAll.hasNext()}">
+				<a th:href="@{/(page=${currentPage+1})}">Sau</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

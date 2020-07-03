@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE"></title>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<div th:replace="fragments/web_header :: header"></div>
+	<div class="total-breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+				<li><a th:href="@{/}">Trang chủ</a></li>
+				<li><a th:href="@{/tin-tuc.html}">Tin tức</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="side-bar">
+					<div th:replace="fragments/web_sidebar :: sidebar"></div>
+				</div>
+				<div class="main">
+					<div layout:fragment="content">
+						<!-- ============================================================================ -->
+						<!-- This content is only used for static prototyping purposes (natural templates)-->
+						<!-- and is therefore entirely optional, as this markup fragment will be included -->
+						<!-- from "fragments/header.html" at runtime.                                     -->
+						<!-- ============================================================================ -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:replace="fragments/web_footer :: footer">&copy; 2016 The
+		Static Templates</div>
+	<div id="hotline">
+		<p>Liên hệ : 0965 990 555</p>
+	</div>
+	<script src="/js/web.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{web/_layout}">
+<head>
+<title>Chi tiết sản phẩm</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="col-md-12 detail-item">
+			<div class="col-md-12 ">
+				<div class="row">
+					<div class="col-md-5">
+						<img class="card-img-top"
+							th:src="@{'/images/product/' + ${product.image}}"
+							alt="Card image cap">
+					</div>
+					<div class="col-md-7">
+						<p class="name-item" th:text="${product.name}"></p>
+						<p>
+							Hãng sản xuất : <span class="code-item" th:text="${product.code}"></span>
+						</p>
+						<hr>
+						<p>
+							Model : <span class="description-item"
+								th:text="${product.description}"></span>
+						</p>
+						<hr>
+						<p class="active-item">
+							Còn hàng : <span><img alt=""
+								th:src="@{'/images/correct.png'}"></span>
+						</p>
+						<hr>
+						<p class="support-item">
+							Liên hệ : <span>0965 990 555</span>
+						</p>
+						<div class="row price-item">
+							<div class="col-md-12">
+								<p>
+									Giá : <span>Liên hệ</span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class="title-ds">
+					<div class="name-ds">
+						<p>Chi tiết sản phẩm</p>
+					</div>
+				</div>
+				<div>
+					<p th:utext="${product.detail}"></p>
+				</div>
+				<br>
+				<div>
+					<p>San pham lien quan</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{web/_layout_tintuc}">
+<head>
+<title>Tin tức</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="whitespace">
+			<div class="other" th:each="newsAll : ${newsAll}">
+				<div class="row">
+					<div class="col-md-3">
+						<a
+							th:href="@{http://thietbihq.com/tin-tuc/{url}.html(url=${newsAll.url})}">
+							<img alt="" th:src="@{'/images/news/' + ${newsAll.image}}">
+						</a>
+					</div>
+					<div class="col-md-9">
+						<h5>
+							<a
+								th:href="@{http://thietbihq.com/tin-tuc/{url}.html(url=${newsAll.url})}"
+								th:text="${newsAll.name}"></a>
+						</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

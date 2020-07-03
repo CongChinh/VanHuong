@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{web/_layout_tintuc}">
+<head>
+<title>Tin tức</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div style="background-color: white; margin-left: 15px">
+			<div class="other">
+				<p th:text="${newsCategory.content}"></p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

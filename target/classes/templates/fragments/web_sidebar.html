@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<div th:fragment="sidebar">
+		<ul>
+			<li class="title">Danh mục sản phẩm</li>
+			<li th:each="menuAll : ${menuAll}"><a
+				th:href="@{http://thietbihq.com/list/{url}.html(url=${menuAll.url})}"
+				th:text="${menuAll.name}"></a>
+				<ul th:each="listcategoryByIdMenu : ${listcategoryByIdMenu}">
+					<li class="a-color"
+						th:if="${menuAll.url}==${listcategoryByIdMenu.url_menu}"><a
+						th:href="@{http://thietbihq.com/list/{url_menu}/{url_category}.html(url_menu=${menuAll.url}, url_category=${listcategoryByIdMenu.url})}"
+						th:text="${listcategoryByIdMenu.name}"></a></li>
+				</ul></li>
+		</ul>
+		<div style="height: 20px; background: #f1f1f1"></div>
+		<div>
+			<p class="title">Sản phẩm mới nhất</p>
+		</div>
+		<div th:each="proMoi : ${proMoi}" class="item-newest">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<a
+							th:href="@{http://thietbihq.com/detail/{url}.html(url=${proMoi.url})}">
+							<img alt="" th:src="@{'/images/product/' + ${proMoi.image}}">
+						</a>
+					</div>
+					<div class="col-md-8">
+						<div class="name">
+							<a
+								th:href="@{http://thietbihq.com/detail/{url}.html(url=${proMoi.url})}"
+								th:text="${proMoi.name}"> </a>
+						</div>
+						<div class="newdetail">
+							<a
+								th:href="@{http://thietbihq.com/detail/{url}.html(url=${proMoi.url})}">Chi
+								tiết</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr>
+		</div>
+	</div>
+</body>
+</html>

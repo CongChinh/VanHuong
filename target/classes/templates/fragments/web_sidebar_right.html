@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<div th:fragment="sidebar_right">
+		<div class="support">
+			<div>
+				<p class="title">Hỗ trợ</p>
+			</div>
+			<div>
+				<p>
+					<img alt="" src="images/footer/zalo.jpg"><span>0965
+						990 555</span>
+				</p>
+				<p>
+					<img alt="" src="images/footer/phone.jpg"><span>0965
+						990 555</span>
+				</p>
+				<p class="email">
+					<span>vanhuong249@gmail.com</span>
+				</p>
+			</div>
+		</div>
+		<div class="sellest">
+			<div>
+				<p class="title-sellest">Bán chạy nhất</p>
+			</div>
+			<div th:each="proBanChay : ${proBanChay}" class="item-sellest">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3">
+							<a
+								th:href="@{http://thietbihq.com/detail/{url}.html(url=${proBanChay.url})}">
+								<img alt="" th:src="@{'/images/product/' + ${proBanChay.image}}">
+							</a>
+						</div>
+						<div class="col-md-9">
+							<div class="name">
+								<a
+									th:href="@{http://thietbihq.com/detail/{url}.html(url=${proBanChay.url})}"
+									th:text="${proBanChay.name}"> </a>
+							</div>
+							<div class="selldetail">
+								<a
+									th:href="@{http://thietbihq.com/detail/{url}.html(url=${proBanChay.url})}">Chi
+									tiết</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

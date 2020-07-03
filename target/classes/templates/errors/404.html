@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Access denied</title>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+<link href="/web/css/home.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div id="notfound">
+			<div class="notfound">
+				<div class="notfound-404">
+					<div></div>
+					<h1>404</h1>
+				</div>
+				<h2>Page not found</h2>
+				<p>The page you are looking for might have been removed had its
+					name changed or is temporarily unavailable.</p>
+				<a th:href="@{/}">home page</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

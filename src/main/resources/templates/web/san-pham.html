@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{web/_layout}">
+<head>
+<title>Sản phẩm</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div style="background-color: white;">
+			<ul class="row">
+				<li class="col-md-3" th:each="menuContent : ${menuAll}">
+					<div class="item">
+						<div>
+							<a
+								th:href="@{http://thietbihq.com/list/{url}.html(url=${menuContent.url})}">
+								<img alt="" th:src="@{'/images/menu/' + ${menuContent.image}}">
+							</a>
+						</div>
+						<br>
+						<div class="index-item-content">
+							<a
+								th:href="@{http://thietbihq.com/list/{url}.html(url=${menuContent.url})}"
+								th:text="${menuContent.name}"> </a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

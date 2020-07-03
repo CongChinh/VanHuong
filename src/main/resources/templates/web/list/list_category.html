@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{web/_layout}">
+<head>
+<title>Danh mục sản phẩm</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div style="background-color: white;">
+			<ul class="row">
+				<li class="col-md-3" th:each="c : ${listcategoryByIdMenu}">
+					<div class="item">
+						<div>
+							<a
+								th:href="@{http://thietbihq.com/list/{url_menu}/{url_category}.html(url_menu=${c.url_menu}, url_category=${c.url})}">
+								<img th:alt="${c.name}"
+								th:src="@{'/images/category/' + ${c.image}}">
+							</a>
+						</div>
+						<br>
+						<div class="index-item-content">
+							<a
+								th:href="@{http://thietbihq.com/list/{url_menu}/{url_category}.html(url_menu=${c.url_menu}, url_category=${c.url})}"
+								th:text="${c.name}"></a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

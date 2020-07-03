@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org" layout:decorate="~{admin/_layout}">
+
+<head>
+<meta charset="UTF-8">
+<title>Product</title>
+</head>
+
+<body>
+	<div layout:fragment="content">
+
+		<!-- Breadcrumbs-->
+
+		<!-- Page Content -->
+
+		<!-- DataTables Example -->
+
+		<!-- Button to Open the Modal -->
+		<div class="container">
+			<div class="row" style="height: 50px;">
+				<div class="col-10">
+					<!-- collapse : hide div -->
+					<!-- collapse : hide div -->
+					<div class="alert alert-success collapse" role="alert"
+						id="addSuccessProduct">
+						<strong>Thêm</strong> thành công
+					</div>
+					<div class="alert alert-danger collapse" role="alert"
+						id="addFailCategory">
+						<strong>Thêm </strong>thất bại
+					</div>
+					<div class="alert alert-success collapse" role="alert"
+						id="updateSuccessProduct">
+						<strong>Sửa</strong> thành công
+					</div>
+					<div class="alert alert-success collapse" role="alert"
+						id="deleteSuccessProduct">
+						<strong>Xóa</strong> thành công
+					</div>
+				</div>
+
+				<div class="col-2">
+					<div style="padding: 5px;">
+						<button type="button" role="alert" class="btn btn-primary"
+							data-toggle="modal" data-target="#myModalProduct"
+							style="width: auto; float: right;">
+							<strong>Thêm mới</strong>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="margin: 15px;">
+			<table class="table table-hover container border-dark"
+				style="width: 100%;">
+				<thead>
+					<tr>
+						<th scope="col" style="width: 5%;">ID</th>
+						<th scope="col" style="width: 40%;">Name</th>
+						<th scope="col" style="width: 5%;">ID Category</th>
+						<th scope="col" style="width: 5%;">Image</th>
+						<th scope="col" style="width: 5%;">URL</th>
+						<th scope="col" style="width: 5%;">URL Category</th>
+						<th scope="col" style="width: 5%;">Code</th>
+						<th scope="col" style="width: 5%;">Description</th>
+						<th scope="col" style="width: 5%;">Active</th>
+						<th scope="col" style="width: 5%;">Detail</th>
+						<th scope="col" style="width: 5%;">Status</th>
+						<th scope="col" style="width: 5%;">Update</th>
+						<th scope="col" style="width: 5%;">Delete</th>
+					</tr>
+				</thead>
+				<tbody class="showListProduct">
+
+				</tbody>
+			</table>
+		</div>
+
+		<form id="createProductForm">
+			<!-- The Modal -->
+			<div class="modal" id="myModalProduct">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title">Create</h4>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+						<!-- Modal body -->
+						<div class="modal-body">
+							<strong>ID Category</strong> : <select id="menuOption4" class="showCategoryArray" onchange="menuOption3()"></select><input type="text" id="Product_idCategory" style="border-radius: 5px; margin-left: 15px; width:20%"/>
+							<br><br>
+							<span><strong>Name</strong> : </span> <input type="text"
+								style="border-radius: 5px; margin-left: 15px; width:80%"
+								id="Product_name" placeholder="name" required="required">
+							<br><br>
+							<strong>Image</strong> : <input type="text" id="Product_image" style="border-radius: 5px; margin-left: 15px; width:80%"/>
+							<br><br>
+							<strong>URL</strong> : <input type="text" id="Product_url" style="border-radius: 5px; margin-left: 15px; width:80%"/>
+							<br><br>
+							<strong>URL Category</strong> : <input type="text" id="Product_url_category" style="border-radius: 5px; margin-left: 15px; width:80%"/>
+							<br><br>
+							<strong>Code</strong> : <input type="text" id="Product_code" style="border-radius: 5px; margin-left: 15px; width:80%"/>
+							<br><br>
+							<strong>Description</strong> : <input type="text" id="Product_description" style="border-radius: 5px; margin-left: 15px; width:80%"/>
+							<br><br>
+							<strong>Active</strong> : <input type="text" id="Product_active" style="border-radius: 5px; margin-left: 15px; width:80%"/>
+							<br><br>
+							<strong>Detail</strong> : <input type="text" id="Product_detail" style="border-radius: 5px; margin-left: 15px; width:80%"/>
+							<br><br>
+							<strong>Status</strong> : <input type="text" id="Product_status" style="border-radius: 5px; margin-left: 15px; width:80%"/>
+							<br><br>
+						</div>
+						<!-- Modal footer -->
+						<div class="modal-footer">
+							<input type="submit" class="btn btn-primary" data-dismiss="modal"
+								onclick="createProduct()">
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+		<form id="updateProductForm">
+			<!-- The Modal -->
+			<div class="modal" id="updateProductModal">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title">Update</h4>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+
+						<!-- Modal body -->
+						<div class="modal-body">
+						<strong>ID Category</strong> : <input type="text" id="updateProduct_idCategory" style="border-radius: 5px; margin-left: 15px; width:80%"/>
+							<br><br>
+							<input type="text" id="updateProduct_id"
+								value="updateProduct_id" hidden> <span><strong>Name</strong>
+								: </span> <input type="text"
+								style="border-radius: 5px; margin-left: 15px;width:80%"
+								id="updateProduct_name"  required>
+								<br><br>
+								<strong>Image</strong> : <input type="text" name="file" id="updateProduct_image" style="border-radius: 5px; margin-left: 15px;width:80%" />
+								<br><br>
+							<strong>URL</strong> : <input type="text" id="updateProduct_url" style="border-radius: 5px; margin-left: 15px; width:80%"/>
+							<br><br>
+							<strong>URL Category</strong> : <input type="text" id="updateProduct_url_category" style="border-radius: 5px; margin-left: 15px; width:80%"/>
+							<br><br>
+							
+							<strong>Code</strong> : <input type="text" id="updateProduct_code" style="border-radius: 5px; margin-left: 15px; width:80%"/>
+							<br><br>
+							<strong>Description</strong> : <input type="text" id="updateProduct_description" style="border-radius: 5px; margin-left: 15px; width:80%"/>
+							<br><br>
+							
+							<strong>Active</strong> : <input type="text" id="updateProduct_active" style="border-radius: 5px; margin-left: 15px; width:80%"/>
+							<br><br>
+							
+							<strong>Detail</strong> : <input type="text" id="updateProduct_detail" style="border-radius: 5px; margin-left: 15px; width:80%"/>
+							<br><br>
+							<strong>Status</strong> : <input type="text" id="updateProduct_status" style="border-radius: 5px; margin-left: 15px; width:80%"/>
+							<br><br>
+						</div>
+
+						<!-- Modal footer -->
+						<div class="modal-footer">
+							<input type="submit" class="btn btn-primary" data-dismiss="modal"
+								onclick="updateProduct()">
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</form>
+
+
+	</div>
+	<!-- /.container-fluid -->
+</body>
+
+</html>

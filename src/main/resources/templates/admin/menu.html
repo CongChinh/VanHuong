@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org" layout:decorate="~{admin/_layout}">
+
+<head>
+<meta charset="UTF-8">
+<title>Menu</title>
+</head>
+
+<body>
+	<div layout:fragment="content">
+
+		<!-- Breadcrumbs-->
+
+		<!-- Page Content -->
+
+		<!-- DataTables Example -->
+
+		<!-- Button to Open the Modal -->
+		<div class="container">
+			<div class="row" style="height: 50px;">
+				<div class="col-10">
+					<!-- collapse : hide div -->
+					<!-- collapse : hide div -->
+					<div class="alert alert-success collapse" role="alert"
+						id="addSuccessMenu">
+						<strong>Thêm</strong> thành công
+					</div>
+					<div class="alert alert-danger collapse" role="alert"
+						id="addFailCategory">
+						<strong>Thêm </strong>thất bại
+					</div>
+					<div class="alert alert-success collapse" role="alert"
+						id="updateSuccessMenu">
+						<strong>Sửa</strong> thành công
+					</div>
+					<div class="alert alert-success collapse" role="alert"
+						id="deleteSuccessMenu">
+						<strong>Xóa</strong> thành công
+					</div>
+				</div>
+
+				<div class="col-2">
+					<div style="padding: 5px;">
+						<button type="button" role="alert" class="btn btn-primary"
+							data-toggle="modal" data-target="#myModalMenu"
+							style="width: auto; float: right;">
+							<strong>Thêm mới</strong>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="margin: 15px;">
+			<table class="table table-hover container border-dark"
+				style="width: 100%;">
+				<thead>
+					<tr>
+						<th scope="col" style="width: 10%;">ID</th>
+						<th scope="col" style="width: 40%;">Name</th>
+						<th scope="col" style="width: 10%;">Image</th>
+						<th scope="col" style="width: 10%;">Update</th>
+						<th scope="col" style="width: 10%;">Delete</th>
+					</tr>
+				</thead>
+				<tbody class="showListMenu">
+
+				</tbody>
+			</table>
+		</div>
+
+		<form id="createMenuForm">
+			<!-- The Modal -->
+			<div class="modal" id="myModalMenu">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title">Create</h4>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+						<!-- Modal body -->
+						<div class="modal-body">
+							<span><strong>Name</strong> : </span> <input type="text"
+								style="border-radius: 5px; margin-left: 15px; width:80%"
+								id="menu_name" placeholder="name" required="required">
+								<br><br>
+								<strong>Image</strong> : <input type="text" name="file" id="menu_image" style="border-radius: 5px; margin-left: 15px; width:80%"/>
+								<br><br>
+								<strong>URL</strong> : <input type="text" name="file" id="menu_url" style="border-radius: 5px; margin-left: 15px; width:80%"/>
+						</div>
+						<!-- Modal footer -->
+						<div class="modal-footer">
+							<input type="submit" class="btn btn-primary" data-dismiss="modal"
+								onclick="createMenu()">
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+		<form id="updateMenuForm">
+			<!-- The Modal -->
+			<div class="modal" id="updateMenuModal">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title">Update</h4>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+
+						<!-- Modal body -->
+						<div class="modal-body">
+							<input type="text" id="updateMenu_id"
+								value="updateMenu_id" hidden> <span><strong>Name</strong>
+								: </span> <input type="text"
+								style="border-radius: 5px; margin-left: 15px;width:80%"
+								id="updateMenu_name"  required>
+								<br><br>
+								<strong>Image</strong> : <input type="text" name="file" id="updateMenu_image" style="border-radius: 5px; margin-left: 15px;width:80%" />
+								<br><br>
+								<strong>URL</strong> : <input type="text" name="file" id="updateMenu_url" style="border-radius: 5px; margin-left: 15px;width:80%" />
+						</div>
+
+						<!-- Modal footer -->
+						<div class="modal-footer">
+							<input type="submit" class="btn btn-primary" data-dismiss="modal"
+								onclick="updateMenu()">
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</form>
+
+
+	</div>
+	<!-- /.container-fluid -->
+</body>
+
+</html>

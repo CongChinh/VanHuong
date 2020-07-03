@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<header th:fragment="header" id="header">
+		<div id="mySidepanel" class="sidepanel">
+			<div class="row">
+				<div>
+					<ul>
+						<li><a th:href="@{/}">Trang chủ</a></li>
+						<li><a th:href="@{/gioi-thieu.html}">Giới thiệu</a></li>
+						<li><a th:href="@{/san-pham.html}">Sản phẩm</a></li>
+						<li><a th:href="@{/tin-tuc.html}">Tin tức</a></li>
+						<li><a th:href="@{/khach-hang.html}">Khách hàng</a></li>
+						<li><a th:href="@{/nha-san-xuat.html}">Nhà sản xuất</a></li>
+						<li><a th:href="@{/tuyen-dung.html}">Tuyển dụng</a></li>
+						<li><a th:href="@{/dich-vu.html}">Dịch vụ</a></li>
+						<li><a th:href="@{/lien-he.html}">Liên hệ</a></li>
+					</ul>
+				</div>
+				<div>
+					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+				</div>
+			</div>
+		</div>
+		<div class="top">
+			<div class="top-header">
+			
+				<!--<a th:href ="@{/login}">Đăng nhập</a>
+				 <a th:href="@{/}">Trang
+							chủ</a> -->
+				<a><img src="/images/top_phone.png" alt="Smiley face"
+					height="18" width="18"> 0965 990 555 </a> <a><img
+					src="/images/top_mail.png" alt="Smiley face" height="18" width="18">
+					vanhuong249@gmail.com </a>
+				<!-- <a><img src="/images/top_place.png" alt="Smiley face" height="18" width="18" class="place">     Xóm 4 - Xã Xuân Hồng - Huyện Xuân Trường - Tỉnh Nam Định </a> -->
+				<button class="openbtn" onclick="openNav()">☰</button>
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-2">
+						<div class="logo">
+							<a th:href="@{/}"><img th:src="@{/images/lgHQ.png}"></a>
+						</div>
+					</div>
+					<div class="col-md-7">
+						<form th:action="@{/search}" class="search">
+						    <input type="text" name="keyword" id="keyword" th:value="${keyword}" required placeholder="   Nội dung cần tìm..."/>
+						    <button type="submit" value="Search"><i class="fa fa-search"></i></button>
+						</form>
+					</div>				
+					<div class="col-md-3">
+						<div class="h_hotline">
+							<img th:src="@{/images/hotline.png}">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="menu" id="menujs">
+			<div class="container">
+				<a th:href="@{/}" class="active">Trang chủ</a> <a href="/gioi-thieu.html"
+					th:href="@{/gioi-thieu.html}">Giới thiệu</a> <a
+					th:href="@{/san-pham.html}">Sản phẩm</a> <a
+					th:href="@{/tin-tuc.html}">Tin tức</a> <a
+					th:href="@{/khach-hang.html}">Khách hàng</a> <a
+					th:href="@{/nha-san-xuat.html}">Nhà sản xuất</a> <a
+					th:href="@{/tuyen-dung.html}">Tuyển dụng</a> <a
+					th:href="@{/dich-vu.html}">Dịch vụ</a> <a
+					th:href="@{/lien-he.html}">Liên hệ</a> <a
+					href="javascript:void(0);" class="icon" onclick="togleMenu()">
+					<i class="fa fa-bars"></i>
+				</a>
+			</div>
+		</div>
+	</header>
+</body>
+</html>

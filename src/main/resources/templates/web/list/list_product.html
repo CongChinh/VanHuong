@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{web/_layout}">
+<head>
+<title>Chi tiết</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div style="background-color: white;">
+			<ul class="row">
+				<li class="col-md-3"
+					th:each="listProductByIdCategory : ${listProductByIdCategory}">
+					<div class="item">
+						<div>
+							<a
+								th:href="@{http://thietbihq.com/detail/{url}.html(url=${listProductByIdCategory.url})}">
+								<img th:alt="${listProductByIdCategory.name}"
+								th:src="@{'/images/product/' + ${listProductByIdCategory.image}}">
+							</a>
+						</div>
+						<div class="index-item-content">
+							<a th:text="${listProductByIdCategory.name}"
+								th:href="@{http://thietbihq.com/detail/{url}.html(url=${listProductByIdCategory.url})}">
+							</a>
+						</div>
+						<div class="price-contact">
+							<p class="price-c">
+								Giá : <span class="p-contact">Liên hệ</span>
+							</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
